@@ -14,12 +14,6 @@ echo "1. Chinese Mainland"
 echo "2. Other"
 read -p "Enter your choice (1 or 2): " place
 
-# Install necessary packages
-if ! sudo pacman -Sy base-devel go git --noconfirm; then
-    echo "Error: Failed to install necessary packages. Please check your network connection and try again."
-    exit 1
-fi
-
 case $place in
     1)
         # Set Go environment variables for Chinese Mainland users
@@ -37,6 +31,12 @@ case $place in
         exit 1
         ;;
 esac
+
+# Install necessary packages
+if ! sudo pacman -Sy base-devel go git --noconfirm; then
+    echo "Error: Failed to install necessary packages. Please check your network connection and try again."
+    exit 1
+fi
 
 # Clone, build, and install 'yay'
 if ! git clone https://aur.archlinux.org/yay.git --depth 1 $HOME/yay-tmp; then

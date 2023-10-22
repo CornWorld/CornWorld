@@ -5,7 +5,7 @@
 # Description: Install zsh + oh-my-zsh + powerlevel10k on a initial archlinux where bash is already installed.
 
 GITHUB_PREFIX=https://github.com
-GITHUB_PREFIX_CN=https://ghproxy.com/https://github.com
+GITHUB_PREFIX_CN=https://slink.ltd/https://github.com
 # GITHUB_PREFIX_CN=https://hub.fgit.cf
 
 echo "Please select your location:"
