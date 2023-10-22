@@ -34,7 +34,7 @@ if ! command -v debtap &> /dev/null; then
     fi
 
     # Update 'debtap'
-    if ! debtap -u; then
+    if ! sudo debtap -u; then
         echo "Error: Failed to update 'debtap'. Please check your network connection and try again."
         exit 1
     fi
