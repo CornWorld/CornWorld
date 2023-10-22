@@ -3,7 +3,7 @@
 # Author: CornWorld(https://github.com/CornWorld)
 
 # Ensure the script is not run as root
-if [[ "$(id -u)" -nq 0 ]]; then
+if [[ "$(id -u)" -ne 0 ]]; then
     echo "Error: This script must not be run as root."
     exit 1
 fi

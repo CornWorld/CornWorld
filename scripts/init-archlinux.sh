@@ -4,7 +4,7 @@
 
 # Description: Configure basic options on an initial archlinux, especially for this type(https://github.com/felixonmars/vps2arch).
 
-if [[ "$(id -u)" -nq 0 ]]; then
+if [[ "$(id -u)" -ne 0 ]]; then
     echo "Error: This script must be run as root."
     exit 1
 fi
