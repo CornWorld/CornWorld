@@ -41,7 +41,7 @@ chsh -s /bin/zsh
 # Install ohmyzsh
 wget -O $HOME/install-ohmyzsh.sh $GITHUB_RAW_PREFIX/ohmyzsh/ohmyzsh/master/tools/install.sh
 sed -i "s|https://github.com|$GITHUB_REPO_PREFIX|" $HOME/install-ohmyzsh.sh
-sed -i 's|exec zsh -l||' 
+sed -i 's|exec zsh -l||' $HOME/install-ohmyzsh.sh
 mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh-old
 sh $HOME/install-ohmyzsh.sh
 rm $HOME/install-ohmyzsh.sh
