@@ -44,7 +44,7 @@ if ! git clone https://aur.archlinux.org/yay.git --depth 1 $HOME/yay-tmp; then
     exit 1
 fi
 
-cd yay || ( echo "Error: Failed to change directory to 'yay'. The directory may not exist." && exit 1)
+cd $HOME/yay || ( echo "Error: Failed to change directory to 'yay'. The directory may not exist." && exit 1)
 
 if ! makepkg -si; then
     echo "Error: Failed to build and install 'yay'. Please check your build environment and try again."
