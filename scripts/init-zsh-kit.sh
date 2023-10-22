@@ -32,17 +32,17 @@ sudo pacman -Sy --noconfirm git wget zsh
 chsh -s /bin/zsh
 
 # Install ohmyzsh
-wget -O $HOME/install-ohmyzsh.sh $GITHUB_PREFIX/ohmyzsh/ohmyzsh/raw/master/tools/install.sh
+wget -t 0 -c -O $HOME/install-ohmyzsh.sh $GITHUB_PREFIX/ohmyzsh/ohmyzsh/raw/master/tools/install.sh
 sed -i "s|https://github.com|$GITHUB_PREFIX|" $HOME/install-ohmyzsh.sh
-if [[ -f "$HOME/.oh-my-zsh" ]]; then 
+if [[ -d "$HOME/.oh-my-zsh" ]]; then 
     mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh_backup_$RANDOM
 fi
 export RUNZSH=no
 sh $HOME/install-ohmyzsh.sh 
 rm $HOME/install-ohmyzsh.sh
 
-if [[ -f "$HOME/.oh-my-zsh/README.md" ]]; then 
-    rm $HOME/.oh-my-zsh
+if [[ ! -f "$HOME/.oh-my-zsh/README.md" ]]; then 
+    rm $HOME/.oh-my-zsh -rf
     echo "[Error] ohmyzsh install failed: Network error. Cleaned up..."
     exit -1
 fi
@@ -60,8 +60,8 @@ else
 fi
 
 # Download .p10k.zsh and .dircolors to $HOME
-wget -O $HOME/.p10k.zsh $GITHUB_PREFIX/CornWorld/CornWorld/raw/master/.p10k.zsh
-wget -O $HOME/.dircolors $GITHUB_PREFIX/CornWorld/CornWorld/raw/master/.dircolors
+wget -t 0 -c -O $HOME/.p10k.zsh $GITHUB_PREFIX/CornWorld/CornWorld/raw/master/.p10k.zsh
+wget -t 0 -c -O $HOME/.dircolors $GITHUB_PREFIX/CornWorld/CornWorld/raw/master/.dircolors
 
 original_zshrc=$(cat "$HOME/.zshrc")
 echo "$original_zshrc" > "$HOME/.zshrc_backup_$RANDOM"
