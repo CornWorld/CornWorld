@@ -38,6 +38,7 @@ if [[ -d "$HOME/.oh-my-zsh" ]]; then
     mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh_backup_$RANDOM
 fi
 export RUNZSH=no
+export ZSH=$HOME/.oh-my-zsh
 sh $HOME/install-ohmyzsh.sh 
 rm $HOME/install-ohmyzsh.sh
 
