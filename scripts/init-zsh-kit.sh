@@ -42,7 +42,7 @@ chsh -s /bin/zsh
 wget -O $HOME/install-ohmyzsh.sh $GITHUB_RAW_PREFIX/ohmyzsh/ohmyzsh/master/tools/install.sh
 sed -i "s|https://github.com|$GITHUB_REPO_PREFIX|" $HOME/install-ohmyzsh.sh
 sed -i 's|exec zsh -l||' $HOME/install-ohmyzsh.sh
-mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh-old
+mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh-backup_$RANDOM
 sh $HOME/install-ohmyzsh.sh
 rm $HOME/install-ohmyzsh.sh
 
@@ -73,14 +73,14 @@ alias chgrp='chgrp --preserve-root'
 p10k_apply_config='
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 '
-p10k_instant_prompt="
+p10k_instant_prompt='
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-"
+'
 
 echo $pt >> $HOME/.bashrc
 echo $p10k_instant_prompt$original_zshrc$p10k_apply_config$pt > $HOME/.zshrc
