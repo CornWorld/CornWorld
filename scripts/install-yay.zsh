@@ -3,7 +3,7 @@
 # Author: CornWorld(https://github.com/CornWorld)
 
 # Ensure the script is not run as root
-if [[ "$(id -u)" -eq 0 ]]; then
+if [[ "$(id -u)" -nq 0 ]]; then
     echo "Error: This script must not be run as root."
     exit 1
 fi
@@ -15,7 +15,7 @@ echo "2. Other"
 read -p "Enter your choice (1 or 2): " place
 
 # Install necessary packages
-if ! sudo pacman -Sy base-devel go git; then
+if ! sudo pacman -Sy base-devel go git --noconfirm; then
     echo "Error: Failed to install necessary packages. Please check your network connection and try again."
     exit 1
 fi
@@ -39,7 +39,7 @@ case $place in
 esac
 
 # Clone, build, and install 'yay'
-if ! git clone https://aur.archlinux.org/yay.git; then
+if ! git clone https://aur.archlinux.org/yay.git --depth $HOME/yay-tmp; then
     echo "Error: Failed to clone 'yay' repository. Please check your network connection and try again."
     exit 1
 fi
@@ -53,4 +53,4 @@ fi
 
 # Cleanup
 cd .. || ( echo "Error: Failed to change directory to parent directory. The directory may not exist." && exit 1)
-rm -rf yay
+rm -rf $HOME/yay-tmp

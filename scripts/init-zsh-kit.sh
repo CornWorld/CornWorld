@@ -9,11 +9,6 @@ GITHUB_REPO_PREFIX_CN=https://hub.fgit.cf
 GITHUB_RAW_PREFIX=https://raw.githubusercontent.com
 GITHUB_RAW_PREFIX_CN=https://raw.fgit.cf
 
-if [[ "$(id -u)" -ne 0 ]]; then
-    echo "Error: This script must be run as root."
-    exit 1
-fi
-
 echo "Please select your location:"
 echo "1. Chinese Mainland"
 echo "2. Other"
@@ -33,7 +28,7 @@ case $place in
 esac
 
 # Install zsh
-pacman -Sy --noconfirm git wget zsh
+sudo pacman -Sy --noconfirm git wget zsh
 
 # Change default shell to zsh
 chsh -s /bin/zsh
