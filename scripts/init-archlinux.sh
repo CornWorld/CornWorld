@@ -23,4 +23,10 @@ pacman -Syu
 pacman -Sy --noconfirm sudo vim git
 echo "$name ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+sed -i 's/^export TMOUT=.*/export TMOUT=0/' /etc/profile && \
+sed -i "/#ClientAliveInterval/a\ClientAliveInterval 60" /etc/ssh/sshd_config && \
+sed -i "/#ClientAliveInterval/d" /etc/ssh/sshd_config && \
+sed -i '/ClientAliveCountMax/ s/^#//' /etc/ssh/sshd_config && \
+systemctl restart sshd.service
+
 echo "======Enjoy!======"
