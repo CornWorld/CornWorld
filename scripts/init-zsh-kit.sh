@@ -2,7 +2,7 @@
 
 # Author: CornWorld(https://github.com/CornWorld)
 
-# Description: Install zsh + oh-my-zsh + powerlevel10k on a initial, bash installed archlinux.
+# Description: Install zsh + oh-my-zsh + powerlevel10k on a initial archlinux where bash is already installed.
 
 GITHUB_REPO_PREFIX=https://github.com
 GITHUB_REPO_PREFIX_CN=https://hub.fgit.cf
