@@ -39,7 +39,7 @@ case $place in
 esac
 
 # Clone, build, and install 'yay'
-if ! git clone https://aur.archlinux.org/yay.git --depth $HOME/yay-tmp; then
+if ! git clone https://aur.archlinux.org/yay.git --depth 1 $HOME/yay-tmp; then
     echo "Error: Failed to clone 'yay' repository. Please check your network connection and try again."
     exit 1
 fi
