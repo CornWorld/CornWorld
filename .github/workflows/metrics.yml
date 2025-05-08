@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: gh-metrics/metrics@latest
+      - uses: stalomeow/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
 
