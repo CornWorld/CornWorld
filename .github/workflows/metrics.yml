@@ -9,13 +9,12 @@ on:
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
-    env: 
+    environment: 
       name: production
-      DEBIAN_FRONTEND: noninteractive
     permissions:
       contents: write
     steps:
-      - uses: stalomeow/metrics@projects-v2
+      - uses: eastspire/metrics@without-footer
         with:
           token: ${{ secrets.METRICS_TOKEN }}
 
