@@ -9,8 +9,9 @@ on:
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
-    environment: 
+    env: 
       name: production
+      DEBIAN_FRONTEND: noninteractive
     permissions:
       contents: write
     steps:
