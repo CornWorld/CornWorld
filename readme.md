@@ -7,7 +7,5 @@
 <p align="center"><img src="/github-metrics.svg" alt="Metrics"></p>
 
 ## My blog
-**[HERE(corn.li)](https://corn.li)**
-
 
 Mirror in Github [here](https://github.com/CornWorld/CornWorld/blob/master/blog.md)
